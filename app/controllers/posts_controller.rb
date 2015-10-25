@@ -97,7 +97,7 @@ class PostsController < ApplicationController
   def show_single_post
     @post = Post.find(params[:id])
     @reviews = Review.where(post: Post.find(params[:id]))
-    
+
     
   end
 
@@ -108,6 +108,40 @@ class PostsController < ApplicationController
     render '/posts/new_version'
   end
 
+  def show_user_all_posts
+
+    @posts = Post.where(user: current_user)
+
+    render '/posts/show_all_user_posts'
+
+  end
+
+  def show_all_post_by_lesson
+
+    @posts = Post.order(vote_count: :desc).where(lesson: Lesson.find(params[:id]))
+
+    render '/posts/posts_by_lesson/'
+
+  end
+
+  def show_all_lessons
+
+    @grades = Grade.all
+
+    render '/posts/index'
+
+  end
+
+
+
+
+
+
+
+
+
+
+
   private
 
   def post_params
@@ -115,5 +149,8 @@ class PostsController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
 
   end
+
+
+
 
 end

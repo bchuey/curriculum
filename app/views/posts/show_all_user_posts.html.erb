@@ -1,0 +1,21 @@
+<div class="container">
+<div class="col-md-12">
+	<h2>My Contributions</h2>
+<% @posts.each do |post| %>
+	<div class="col-sm-6 col-md-3">
+		<a href="/posts/<%= post.id %>">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <p><%= post.grade.level %></p>
+        <p><%= post.category.name %></p>
+        <p><%= post.subject.name %></p>
+        <p><%= post.lesson.title %></p>
+        <p>Votes: <%= post.vote_count %></p>
+      </div>
+    </div>
+	  </a>
+  </div>
+<% end %>
+</div>
+</div>

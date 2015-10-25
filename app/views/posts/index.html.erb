@@ -1,2 +1,41 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div id='cssmenu'>
+<ul>
+   <li><a href='#'><span>Category</span></a></li>
+   <% @grades.each do |grade| %>
+		   <li class='active has-sub'><a href='#'><span><%= grade.level %></span></a>    	
+	      	<% end %>
+      <ul>
+         <li class='has-sub'><a href='#'><span>Product 1</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+         <li class='has-sub'><a href='#'><span>Product 2</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+      </ul>
+   </li>
+   <li><a href='#'><span>About</span></a></li>
+   <li class='last'><a href='#'><span>Contact</span></a></li>
+</ul>
+
+
+</div>
+
+<div class="container">
+<div class="col-md-4">
+	
+	      	<% @grades.each do |grade| %>
+		      	<li><%= grade.level %></li>
+	      	<% end %>
+
+</div>
+</div>
+<diiv class="col-md-8">
+
+
+</div>

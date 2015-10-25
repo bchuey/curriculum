@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   ### Posts <=> Curriculums ###
 
+  get 'posts/index' => 'posts#show_all_lessons'
+
   get 'posts/new' => 'posts#new'
   post 'posts/send_grade' => 'posts#send_grade'
 
@@ -25,11 +27,20 @@ Rails.application.routes.draw do
 
   patch 'posts/update'
   delete 'posts/destroy'
+
+  get 'posts/all' => 'posts#show_user_all_posts'
+  get 'posts/lesson/:id' => 'posts#show_all_post_by_lesson'
+
+
   post 'posts/create_lesson' => 'posts#create'
   get 'posts/:id' => 'posts#show_single_post'
 
   get 'posts/new_version' => 'posts#new_version'
   post 'posts/create_versioned_lesson' => 'posts#create_versioned_lessons'
+
+
+
+
   ### Documents ###
 
   patch 'documents/create'
