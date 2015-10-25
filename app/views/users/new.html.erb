@@ -8,31 +8,31 @@
 						<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 						<div class="form-group">
 							<label for="first_name">First Name:</label>
-							<input type="text" name="first_name" id="first_name" class="form-control">
+							<input type="text" name="user[first_name]" id="first_name" class="form-control">
 						</div>
 						<div class="form-group">
 							<label for="last_name">Last Name:</label>
-							<input type="text" name="last_name" id="last_name" class="form-control">
+							<input type="text" name="user[last_name]" id="last_name" class="form-control">
 						</div>
 						<div class="form-group">
 							<label for="email">Email:</label>
-							<input type="email" name="email" id="email" class="form-control">
+							<input type="email" name="user[email]" id="email" class="form-control">
 						</div>
 						<div class="form-group">
 							<label for="password">Password:</label>
-							<input type="password" name="password" id="password" class="form-control">
+							<input type="password" name="user[password]" id="password" class="form-control">
 						</div>
 						<div class="form-group">
 							<label for="password_confirmation">Re-enter Password:</label>
-							<input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
+							<input type="password" name="user[password_confirmation]" id="password_confirmation" class="form-control">
 						</div>
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label for="role">Role:</label>
-							<select name="role" id="role" class="form-control">
-								<option value="0">Teacher</option>
-								<option value="1">Student</option>
+							<select name="user[role]" id="role" class="form-control">
+								<option value="1">Teacher</option>
+								<option value="2">Student</option>
 							</select>
-						</div>
+						</div> -->
 						<div class="form-group">
 							<input type="submit" value="Create Account" class="btn btn-success">
 						</div>

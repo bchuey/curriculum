@@ -1,0 +1,8 @@
+<form action="/posts/send_lesson" method="post">
+	<select name="question" id="question">
+		<% @grades.find(1).categories.find(1).subjects.find(1).lessons.each do |lesson| %>
+			<option value="<%= lesson.id %>"><%= lesson.title %></option>
+		<% end %>
+	</select>
+	<input type="submit" value="Next" id="continue" class="btn btn-success">
+</form>

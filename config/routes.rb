@@ -4,21 +4,27 @@ Rails.application.routes.draw do
 
   get 'subjects/show/:id' => 'subject#show'
 
+
   ### Posts <=> Curriculums ###
 
-  get 'posts/index'
-
   get 'posts/new' => 'posts#new'
+  post 'posts/send_grade' => 'posts#send_grade'
 
-  post 'posts/create'
+  get 'posts/category_form' => 'posts#category_question'
+  post 'posts/send_category' => 'posts#send_category'
 
-  get 'posts/show'
+  get 'posts/subject_form' => 'posts#subject_question'
+  post 'posts/send_subject' => 'posts#send_subject'
 
-  get 'posts/edit'
+  get 'posts/lesson_form' => 'posts#lesson_question'
+  post 'posts/send_lesson' => 'posts#send_lesson'
+
+  get 'posts/upload_lesson' => 'posts#upload_lesson'
 
   patch 'posts/update'
-
   delete 'posts/destroy'
+  post 'posts/create_lesson' => 'posts#create'
+  get 'posts/:id' => 'posts#show_single_post'
 
   ### Documents ###
 
@@ -42,7 +48,7 @@ Rails.application.routes.draw do
 
   ### Sessions ###
 
-  get 'sessions/new'
+  get 'sessions/new' => 'sessions#new'
 
   post 'sessions' => 'sessions#create'
 

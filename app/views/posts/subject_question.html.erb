@@ -1,0 +1,13 @@
+<%= @grade_id %>
+<%= @category_id %>
+<form action="/posts/send_subject" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<select name="question" id="question">
+	<% @grades.find(@grade_id).categories.find(@category_id).subjects.each do |subject| %>
+			<option value="<%= subject.id %>"><%= subject.name %></option>
+	<% end %>
+	</select>
+
+	<input type="submit" value="Next" id="continue" class="btn btn-success">
+</form>
+

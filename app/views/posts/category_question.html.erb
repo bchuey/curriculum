@@ -1,0 +1,11 @@
+<form action="/posts/send_category" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<select name="question" id="question">
+		<% @grades.find(@grade_id).categories.each do |category| %>
+			<option value="<%= category.id %>"><%= category.name %></option>
+		<% end %>
+	</select>
+	<input type="submit" value="Next" id="continue" class="btn btn-success">
+</form>
+
+
