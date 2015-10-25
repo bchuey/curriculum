@@ -34,16 +34,13 @@ Rails.application.routes.draw do
 
   ### Votes ###
 
-  post 'votes/create'
+  post 'votes' => 'votes#create'
 
   ### Reviews ###
 
-  post 'reviews/create'
-
+  post 'reviews' => 'reviews#create'
   get 'reviews/edit'
-
   patch 'reviews/update'
-
   delete 'reviews/delete'
 
   ### Sessions ###

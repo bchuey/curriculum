@@ -89,6 +89,8 @@ class PostsController < ApplicationController
 
   def show_single_post
     @post = Post.find(params[:id])
+    @reviews = Review.where(post: Post.find(params[:id]))
+    
   end
 
   private
