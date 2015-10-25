@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
 
 	has_many :votes
 	has_many :reviews
+	has_many :versions
 	has_one :document
 	
 	belongs_to :user

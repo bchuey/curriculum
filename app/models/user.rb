@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
 	has_many :documents
 	has_many :reviews
 	has_many :votes
-
+	has_many :versions
+	
 	belongs_to :role
 
   	has_secure_password

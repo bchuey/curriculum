@@ -1,10 +1,11 @@
-<h1>Page to show single lesson by user</h1>
+<h1>Your curriculum plan</h1>
 <h2>Grade: <%= @post.grade.level %></h2>
 <h2>Category: <%= @post.category.name %></h2>
 <h2>Subject: <%= @post.subject.name %></h2>
-<h2>Your lesson: <%= @post.content %></h2>
+<h2>Your lesson:</h2> 
+<p><%= sanitize @post.content %></p>
 <h2>Number of votes: <%= @post.vote_count %></h2>
-
+<div class="col-md-12">
 <% if @post.votes.where(user_id: current_user).empty? %>
 <form action="/votes" method="post">
 	<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -21,6 +22,18 @@
 </form>
 
 <% end %>
+</div>
+
+<div class="col-md-12">
+<form action="/versions" method="post">
+	<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+	<input type="hidden" name="post_id" value="<%= @post.id %>">
+	<input type="hidden" name="original_owner" value="<%= current_user.id %>">
+	<input type="submit" value="Create Version" class="btn btn-success">
+</form>
+</div>
+
+<div class="col-md-12">
 <form action="/reviews" method="post">
 	<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 	<input type="hidden" name="post_id" value="<%= @post.id %>">
@@ -34,7 +47,7 @@
 	</select>
 	<input type="submit" value="add review">
 </form>
-
+</div>
 <div class="col-md-10">
 <% @reviews.each do |r| %>
 <div class="col-md-12">

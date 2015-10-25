@@ -87,10 +87,25 @@ class PostsController < ApplicationController
     redirect_to "/posts/#{@post.id}"
   end
 
+  def create_versioned_lesson
+
+    @post = Post.create(content: params[:content], user: current_user, grade: Grade.find(params[:grade_id]), category: Category.find(params[:category_id]), subject: Subject.find(params[:subject_id]), lesson: Lesson.find(params[:lesson_id]), vote_count: 0)
+
+    redirect_to "/posts/#{@post.id}"
+  end
+
   def show_single_post
     @post = Post.find(params[:id])
     @reviews = Review.where(post: Post.find(params[:id]))
     
+    
+  end
+
+  def new_version
+
+
+
+    render '/posts/new_version'
   end
 
   private

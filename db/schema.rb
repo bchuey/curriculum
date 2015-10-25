@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024091512) do
+ActiveRecord::Schema.define(version: 20151025023710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,6 +108,17 @@ ActiveRecord::Schema.define(version: 20151024091512) do
   end
 
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
+
+  create_table "versions", force: true do |t|
+    t.integer  "post_id"
+    t.integer  "version_number"
+    t.integer  "original_owner"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "versions", ["original_owner"], name: "index_versions_on_original_owner", using: :btree
+  add_index "versions", ["post_id"], name: "index_versions_on_post_id", using: :btree
 
   create_table "votes", force: true do |t|
     t.integer  "post_id"
