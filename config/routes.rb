@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+  post 'versions' => 'versions#create'
+
   ### Subjects ###
 
-  get 'subjects/show/:id' => 'subject#show'
+  get 'subjects/show/:id' => 'subjects#show'
 
 
   ### Posts <=> Curriculums ###
@@ -26,6 +28,8 @@ Rails.application.routes.draw do
   post 'posts/create_lesson' => 'posts#create'
   get 'posts/:id' => 'posts#show_single_post'
 
+  get 'posts/new_version' => 'posts#new_version'
+  post 'posts/create_versioned_lesson' => 'posts#create_versioned_lessons'
   ### Documents ###
 
   patch 'documents/create'
