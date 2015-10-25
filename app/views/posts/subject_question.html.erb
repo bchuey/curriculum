@@ -1,12 +1,73 @@
 
-<form action="/posts/send_subject" method="post">
-	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-	<select name="question" id="question">
-	<% @grades.find(@grade_id).categories.find(@category_id).subjects.each do |subject| %>
-			<option value="<%= subject.id %>"><%= subject.name %></option>
-	<% end %>
-	</select>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style>
+		.container {
+			display: inline-block;
+			margin-top: 150px;
+		}
 
-	<input type="submit" value="Next" id="continue" class="btn btn-success">
-</form>
+		.questionone {
+			margin: 0px auto;
+			text-align: center;
+		}
+
+		#selecting {
+			margin: 0px auto;
+			text-align: center;
+
+		}
+
+		#box{
+			width: 700px;
+			height: 450px;
+			background-color: white;
+			text-align: center;
+			margin: 0px auto;
+			padding-top: 120px;
+			border: 1px solid silver;
+			border-radius: 10px;
+		}
+
+		#wrapper {
+			background-color: #65BAD3;
+			height: 780px;
+		}
+	</style>
+
+
+<body>
+	<div id="wrapper">
+	<div class="poop text-center">
+		<div class="container text-center">
+			<div id="box" class="row text-center">
+				<div class="questionone" class="text-center col-md-12">
+					<h3>What subject are you teaching?</h3>
+					<form action="/posts/send_category" method="post" id="form_question">
+						<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+						<div class="form-group col-md-6 col-md-push-3" id="selecting">
+							<div class="form-group">
+								<label for="questionone">(select a subject):</label>
+								<select class="form-control text-center" name="question" id="questionone">
+									<option value="geometry">Geometry</option>
+									<option value="addition">Addition</option>
+									<option value="subtraction">Subtraction</option>
+									<option value="multiplication">Multiplication</option>
+									<option value="division">Division</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<input type="submit" value="Next" id="continue" class="btn btn-success">
+
+							</div>
+						</div>
+					</form>					
+				</div>
+			</div>
+		</div>	
+	</div>
+</div>
+</body>
+
+
+
 

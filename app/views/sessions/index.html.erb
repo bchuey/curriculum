@@ -1,34 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Curriculum</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <script src="//cdn.ckeditor.com/4.5.4/standard/ckeditor.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
-<body>
-			<% if flash[:errors] %>
-				<% flash[:errors].each do |e| %>
-				<p><%= e %></p>
-				<% end %>
-			<% end %>
-			<nav class="navbar navbar-default navbar-fixed-top">
+<style>
+  body {
+    background-image: url("http://www.free-wallpapers.net/wp-content/uploads/2015/07/Wallpaper-Books.jpg");
+    background-size: 100%;
+    height: auto;
+    width: auto;
+  }
+</style>
+<div id="container">
+<nav class="navbar navbar-default navbar-fixed-top">
 <div class="navbar-header">
-	<p class="navbar-brand"></p>
+	<p class="navbar-brand">CLASSr</p>
 </div>
 	<div id="navbuttons">
-		<% if current_user %>
-			<form action="/logout" method="post">
-				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-				<input type="hidden" name="_method" value="delete">
-				<input type="submit" value="Logout">
-			</form>
-		<% else %>
 		<button type="button" class="btn btn-default navbar-btn navbar-right" data-toggle="modal" data-target="#logModal">Login</button>
 		<button type="button" class="btn btn-default navbar-btn navbar-right" data-toggle="modal" data-target="#regModal">Register</button>
-		<% end %>
 	</div>
 </nav>
 <div class="modal fade" id="regModal" role="dialog">
@@ -121,11 +106,4 @@
 </div>
 </div>
 </div>
-			
-
-
-	
-<%= yield %>
-
-</body>
-</html>
+</div> <!-- end of container -->

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  ### Front Page ###
+
+  get '/' => 'sessions#index'
+
   ### Subjects ###
 
   get 'subjects/show/:id' => 'subject#show'
@@ -9,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'posts/new' => 'posts#new'
   post 'posts/send_grade' => 'posts#send_grade'
+
+
 
   get 'posts/category_form' => 'posts#category_question'
   post 'posts/send_category' => 'posts#send_category'

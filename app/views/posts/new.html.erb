@@ -2,27 +2,71 @@
 <head>
 	<title>Add New Curriculum</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style>
+		.container {
+			display: inline-block;
+			margin-top: 150px;
+		}
+
+		.questionone {
+			margin: 0px auto;
+			text-align: center;
+		}
+
+		#selecting {
+			margin: 0px auto;
+			text-align: center;
+
+		}
+
+		#box{
+			width: 700px;
+			height: 450px;
+			background-color: white;
+			text-align: center;
+			margin: 0px auto;
+			padding-top: 120px;
+			border: 1px solid silver;
+			border-radius: 10px;
+		}
+
+		#wrapper {
+			background-color: #65BAD3;
+			height: 780px;
+		}
+	</style>
 
 </head>
 <body>
-	<div class="jumbotron">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
+	<div id="wrapper">
+	<div class="poop text-center">
+		<div class="container text-center">
+			<div id="box" class="row text-center">
+				<div class="questionone" class="text-center col-md-12">
+					<h3>What grade are you currently teaching?</h3>
 					<form action="/posts/send_grade" method="post" id="form_question">
 						<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-						<select name="question" id="question">
-							<% @grades.each do |grade| %>
-								<option value="<%= grade.id %>"><%= grade.level %></option>
-							<% end %>
-						</select>
-						<input type="submit" value="Next" id="continue" class="btn btn-success">
+						<div class="form-group col-md-6 col-md-push-3" id="selecting">
+							<div class="form-group">
+								<label for="questionone">(select grade):</label>
+								<select class="form-control text-center" name="question" id="questionone">
+									<option>Kindergarten</option>
+									<option>First Grade</option>
+									<option>Second Grade</option>
+									<option>Third Grade</option>
+									<option>Fourth Grade</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<input type="submit" value="Next" id="continue" class="btn btn-success">
+							</div>
+						</div>
 					</form>
 					
 				</div>
 			</div>
 		</div>	
 	</div>
-
+</div>
 </body>
 </html>
